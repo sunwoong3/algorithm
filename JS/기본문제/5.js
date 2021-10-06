@@ -1,3 +1,4 @@
+//최소값 구하기
 function solution(arr){         
     let answer, min=Number.MAX_SAFE_INTEGER;
     for(let i=0; i<arr.length; i++){
