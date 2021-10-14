@@ -1,3 +1,4 @@
+//첫째 줄에 홀수들의 합, 둘째 줄에 홀수 중에 최소값 출력하기
 function solution(arr){
     let answer=[];
     let sum = 0;

@@ -1,4 +1,4 @@
-
+// 세 수 중 최솟값 구하기
 function solution(a, b, c){
     let answer = a;
     if (answer > b && b < c) answer = b
