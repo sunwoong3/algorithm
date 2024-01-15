@@ -7,6 +7,16 @@
     <script>
       function solution(s, t) {
         let answer = [];
+        for (let index in s) {
+          let oddPlace = s.indexOf(t, +index);
+          let minusPlace = s.indexOf(t, -index);
+          answer.push(oddPlace - index);
+          console.log({ oddPlace });
+          console.log({ minusPlace });
+          console.log(oddPlace - index);
+          console.log(index - oddPlace, "oddPlace");
+          // answer.push(s.indexOf());
+        }
 
         return answer;
       }
