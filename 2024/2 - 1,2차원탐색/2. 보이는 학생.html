@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = 1;
+        let students = [];
+        arr.map((el, idx) => {
+          if (idx === 0) students.push(el);
+          if (students[students.length - 1] < el) students.push(el);
+          return students;
+        });
+        answer = students.length;
+        return answer;
+      }
+
+      let arr = [130, 135, 148, 140, 145, 150, 150, 153];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

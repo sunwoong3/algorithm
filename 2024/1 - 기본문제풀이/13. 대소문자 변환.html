@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+        let arr = s.split("");
+        arr = arr.map((el) =>
+          el.toUpperCase() === el
+            ? (el = el.toLowerCase())
+            : (el = el.toUpperCase())
+        );
+        answer = arr.join("");
+        return answer;
+      }
+
+      console.log(solution("StuDY"));
+    </script>
+  </body>
+</html>

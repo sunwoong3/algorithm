@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer = "YES";
+        let arr = [a, b, c].sort((el1, el2) => el2 - el1);
+        max = arr[0];
+
+        answer = arr[1] + arr[2] > max ? answer : "NO";
+
+        return answer;
+      }
+
+      console.log(solution(6, 7, 11));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+        let arr = [];
+        let spiltS = s.split("");
+        for (let el of spiltS) {
+          if (arr.indexOf(el) === -1) arr.push(el);
+        }
+        answer = arr.join("");
+        return answer;
+      }
+      console.log(solution("ksekkset"));
+    </script>
+  </body>
+</html>

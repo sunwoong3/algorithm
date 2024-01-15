@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = 0;
+        let arr = s.split("");
+        arr.map((el) => (el.toUpperCase() === el ? answer++ : answer));
+        return answer;
+      }
+
+      let str = "KoreaTimeGood";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
