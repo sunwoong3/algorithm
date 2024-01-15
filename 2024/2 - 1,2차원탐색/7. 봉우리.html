@@ -28,6 +28,27 @@
         }
         return answer;
       }
+      //정답문제풀이
+      function solution2(arr) {
+        let answer = 0;
+        //상하좌우
+        let dx = [-1, +1, 0, 0];
+        let dy = [0, 0, -1, +1];
+        for (let i = 0; i < arr.length; i++) {
+          //상하좌우보다 크면 봉우리
+          for (let j = 0; j < arr.length; j++) {
+            let flag = 1;
+            for (let k = 0; k < 4; k++) {
+              if (arr[i][j] <= arr[i + dx[k]][j + dy[k]]) {
+                flag = 0;
+                break;
+              }
+            }
+            flag ? answer++ : answer;
+          }
+        }
+        return answer;
+      }
 
       let arr = [
         [5, 3, 7, 2, 3],
