@@ -7,6 +7,12 @@
     <script>
       function solution(str) {
         let answer = "";
+        for (let el of str) {
+          if (!isNaN(Number(el))) {
+            answer += el;
+          }
+        }
+        console.log(answer);
 
         return parseInt(answer);
       }
