@@ -7,6 +7,14 @@
     <script>
       function solution(s) {
         let answer = "YES";
+        let setS = s.toUpperCase();
+        let len = setS.length;
+        let pattern = /[a-zA-Z]/;
+        for (let i = 0; i < len / 2; i++) {
+          if (pattern.test(setS[i]) && setS[i] !== setS[len - 1 - i]) {
+            answer = "NO";
+          }
+        }
         return answer;
       }
 
