@@ -39,7 +39,15 @@
           for (let j = 0; j < arr.length; j++) {
             let flag = 1;
             for (let k = 0; k < 4; k++) {
-              if (arr[i][j] <= arr[i + dx[k]][j + dy[k]]) {
+              let x = i + dx[k];
+              let y = j + dy[k];
+              if (
+                x >= 0 &&
+                y >= 0 &&
+                x < arr.length &&
+                y < arr.length &&
+                arr[i][j] <= arr[x][y]
+              ) {
                 flag = 0;
                 break;
               }
@@ -57,7 +65,7 @@
         [4, 3, 6, 4, 1],
         [8, 7, 3, 5, 2],
       ];
-      console.log(solution(arr));
+      console.log(solution2(arr));
     </script>
   </body>
 </html>
