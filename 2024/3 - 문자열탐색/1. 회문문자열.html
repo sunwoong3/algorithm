@@ -7,11 +7,19 @@
     <script>
       function solution(s) {
         let answer = "YES";
+        let setS = s.toUpperCase();
+        let len = setS.length;
+        for (let i = 0; i < len / 2; i++) {
+          if (setS[i] !== setS[len - 1 - i]) {
+            answer = "NO";
+            break;
+          }
+        }
 
         return answer;
       }
 
-      let str = "goooG";
+      let str = "baooaB";
       console.log(solution(str));
     </script>
   </body>
