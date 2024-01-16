@@ -7,15 +7,17 @@
     <script>
       function solution(s, t) {
         let answer = [];
+        let checkplace = [];
         for (let index in s) {
-          let oddPlace = s.indexOf(t, +index);
-          let minusPlace = s.indexOf(t, -index);
-          answer.push(oddPlace - index);
-          console.log({ oddPlace });
-          console.log({ minusPlace });
-          console.log(oddPlace - index);
-          console.log(index - oddPlace, "oddPlace");
-          // answer.push(s.indexOf());
+          if (s[index] === t) checkplace.push(index);
+        }
+
+        for (let index in s) {
+          let num = s.length;
+          for (let check of checkplace) {
+            num = Math.abs(check - index) < num ? Math.abs(check - index) : num;
+          }
+          answer[index] = num;
         }
 
         return answer;
