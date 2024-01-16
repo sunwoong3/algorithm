@@ -7,6 +7,15 @@
     <script>
       function solution(s) {
         let answer = "";
+        let count = 1;
+        s.split("").map((el, index) => {
+          if (el === s[index + 1]) count++;
+          else {
+            answer = count !== 1 ? (answer += el + count) : (answer += el);
+            count = 1;
+          }
+          return answer;
+        });
 
         return answer;
       }
