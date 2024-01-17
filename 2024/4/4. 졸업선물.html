@@ -7,18 +7,30 @@
     <script>
       function solution(m, product) {
         let answer = 0;
+        let amount = m;
+        let sortProduct = product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
 
+        let sumCost = sortProduct
+          .map((el, index) =>
+            index === product.length - 1 ? el[0] / 2 + el[1] : el[0] + el[1]
+          )
+          .sort((a, b) => a - b);
+
+        while (0 <= amount) {
+          answer++;
+          amount -= sumCost[answer];
+        }
         return answer;
       }
 
       let arr = [
-        [6, 6],
+        [8, 6],
         [2, 2],
         [4, 3],
         [4, 5],
-        [10, 3],
+        [12, 1],
       ];
-      console.log(solution(28, arr));
+      console.log(solution(41, arr));
     </script>
   </body>
 </html>
