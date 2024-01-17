@@ -6,13 +6,66 @@
   <body>
     <script>
       function solution(n, arr) {
+        const t0 = performance.now();
+
+        let answer,
+          max = Number.MIN_SAFE_INTEGER;
+        for (let x of arr) {
+          let sum = 0,
+            tmp = x;
+          while (tmp) {
+            sum += tmp % 10;
+            tmp = Math.floor(tmp / 10);
+          }
+          if (sum > max) {
+            max = sum;
+            answer = x;
+          } else if (sum === max) {
+            if (x > answer) answer = x;
+          }
+        }
+        const t1 = performance.now();
+
+        console.log(
+          `Call to doSomething took ${t1 - t0} milliseconds. : solution`
+        );
+
+        return answer;
+      }
+
+      function solution2(n, arr) {
+        const t0 = performance.now();
+
         let answer;
+        let list = arr.map((el) =>
+          el
+            .toString()
+            .split("")
+            .reduce((acc, cur) => Number(acc) + Number(cur))
+        );
+
+        let max = Math.max(...list);
+
+        let checkIndex = list
+          .map((el, index) => (el === max ? index : undefined))
+          .filter((el) => el !== undefined);
+
+        let anserArr = checkIndex.map((el) => arr[el]);
+
+        answer = Math.max(...anserArr);
+
+        const t1 = performance.now();
+
+        console.log(
+          `Call to doSomething took ${t1 - t0} milliseconds. :solution2`
+        );
 
         return answer;
       }
 
       let arr = [128, 460, 603, 40, 521, 137, 123];
       console.log(solution(7, arr));
+      console.log(solution2(7, arr));
     </script>
   </body>
 </html>
