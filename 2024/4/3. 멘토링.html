@@ -1,13 +1,48 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>출력결과</title>
+    <!-- <title>출력결과</title> -->
   </head>
   <body>
     <script>
+      function solution2(test) {
+        let answer = 0;
+        m = test.length;
+        n = test[0].length;
+        for (let i = 1; i <= n; i++) {
+          for (let j = 1; j <= n; j++) {
+            let cnt = 0;
+            for (let k = 0; k < m; k++) {
+              let pi = (pj = 0);
+              for (let s = 0; s < n; s++) {
+                if (test[k][s] === i) pi = s;
+                if (test[k][s] === j) pj = s;
+              }
+              if (pi < pj) cnt++;
+            }
+            if (cnt === m) answer++;
+          }
+        }
+        return answer;
+      }
+
       function solution(test) {
         let answer = 0;
-        return answer;
+        let arr = [];
+        for (let i = 0; i < test.length; i++) {
+          for (let j = 0; j < test[0].length - 1; j++) {
+            for (let k = j + 1; k < test[0].length; k++) {
+              let num = test[i][j].toString() + test[i][k].toString();
+              arr.push(num);
+            }
+          }
+        }
+        let uniqueArr = [...new Set(arr)];
+        answer = uniqueArr.filter(
+          (el, index) =>
+            uniqueArr.indexOf(el.split("").reverse().join("")) === -1
+        );
+        return answer.length;
       }
 
       let arr = [
