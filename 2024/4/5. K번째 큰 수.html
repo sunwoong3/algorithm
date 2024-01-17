@@ -7,7 +7,17 @@
     <script>
       function solution(n, k, card) {
         let answer;
+        let sumArr = [];
+        for (let i = 0; i < card.length - 2; i++) {
+          for (let j = i + 1; j < card.length - 1; j++) {
+            for (let k = j + 1; k < card.length; k++) {
+              sumArr.push(card[i] + card[j] + card[k]);
+            }
+          }
+        }
+        let sortArr = [...new Set(sumArr)].sort((a, b) => b - a);
 
+        answer = sortArr[k - 1] || -1;
         return answer;
       }
 
